@@ -15,5 +15,6 @@ const pool=new Pool({connectionString:URI});
   //   password:'admin2023',
   //   database:'my_store',
   // });
+  ///////////////////////////////RAMA del pool/////
 
 module.exports=pool;
