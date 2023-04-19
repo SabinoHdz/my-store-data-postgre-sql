@@ -1,14 +1,12 @@
 const { faker } = require('@faker-js/faker');
 const boom = require('@hapi/boom');
-const pool=require('../libs/postgres-pool');
+const pool=require('../libs/sequelize');
+const sequelize = require('../libs/sequelize');
 class ProductsService {
   constructor() {
     this.products = [];
     this.generate();
     this.pool=pool;
-    this.pool.on('error',(err)=>{
-      console.log(err);
-    })
   }
 
   generate() {
@@ -35,8 +33,10 @@ class ProductsService {
 
  async find() {
     const query="SELECT * from task";
-    const response=await this.pool.query(query);
-    return response.rows;
+    //se puede obtener la taa y el metadata de hacer la consulta
+    //const [data,metadata]=await sequelize.query(query);
+    const [data]=await sequelize.query(query);
+    return  data;
   }
 
   async findOne(id) {

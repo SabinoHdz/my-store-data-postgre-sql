@@ -22,7 +22,7 @@ router.get(
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const user = service.findOne(id);
+      const user = await service.findOne(id);
       res.json(user);
     } catch (error) {
       next(error);
@@ -35,7 +35,7 @@ router.post(
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newUser = service.create(body);
+      const newUser =await service.create(body);
       res.json(newUser);
     } catch (error) {
       next(error);
@@ -50,7 +50,7 @@ router.patch(
     try {
       const { id } = req.params;
       const body = req.body;
-      const updateUser = service.update(id, body);
+      const updateUser = await service.update(id, body);
       res.json(updateUser);
     } catch (error) {
       next(error);
@@ -60,7 +60,7 @@ router.patch(
 router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const delUser = service.delete(id);
+    const delUser = await service.delete(id);
     res.json(delUser);
   } catch (error) {
     next(error);
