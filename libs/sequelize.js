@@ -12,6 +12,7 @@ const sequelize= new Sequelize(URI,{
   logging:true,
 });
 setupModels(sequelize);
-sequelize.sync();
+//sequelize.sync(); Hacer el manejo de cambios por medio de migraciones
+
 
 module.exports=sequelize;
