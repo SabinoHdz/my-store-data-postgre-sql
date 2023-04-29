@@ -1,6 +1,5 @@
 'use strict';
-const {UserSchema,USER_TABLE} =require('../models/user.model');
-
+const {CustomerSchema,CUSTOMER_TABLE} =require('../models/customer.model');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -10,9 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    //await queryInterface.addColumn(USER_TABLE,'Campo_agregar',esquema del campo);
-
-    //await queryInterface.addColumn(USER_TABLE,'role',UserSchema.role);
+    await queryInterface.createTable(CUSTOMER_TABLE,CustomerSchema);
   },
 
   async down (queryInterface, Sequelize) {
@@ -22,6 +19,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeColumn(USER_TABLE,'role');
+    await queryInterface.drop(CUSTOMER_TABLE);
+
   }
 };
