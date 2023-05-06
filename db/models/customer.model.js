@@ -47,6 +47,10 @@ class Customer extends Model {
     //asociacion  es importante es user y se usa
     // en el servicio
     this.belongsTo(models.User, { as: 'user' });
+    this.hasMany(models.Order,{
+      as:'orders',
+      foreignKey:'customerId'
+    })
   }
   static config(sequelize) {
     return {
