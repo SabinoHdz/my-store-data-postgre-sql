@@ -1,5 +1,5 @@
 const ProductsService = require('../services/product.service');
-const {validatorHandler} = require('./../middlewares/validator.handler.js');
+const { validatorHandler } = require('./../middlewares/validator.handler.js');
 const {
   createProductSchema,
   updateProductSchema,
@@ -16,7 +16,8 @@ router.get('/filter', (req, res) => {
 //products dinamic
 router.get('/', async (req, res, next) => {
   try {
-    const products = await service.find();
+    //paginacion
+    const products = await service.find(req.query);
     res.json(products);
   } catch (error) {
     next(error);
@@ -49,7 +50,7 @@ router.post(
       const newProduct = await service.create(body);
       res.status(201).json(newProduct);
     } catch (error) {
-     next(error);
+      next(error);
       // res.status(404).json({
       //   message:error.message
       // });
