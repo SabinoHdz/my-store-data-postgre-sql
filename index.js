@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
-
+//version de sequelize y bd concluido
 const {
   logErrors,
   errorHandler,
