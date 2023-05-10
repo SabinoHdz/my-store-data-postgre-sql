@@ -34,6 +34,10 @@ class Order extends Model {
     //asociacion  es importante es user y se usa
     // en el servicio
     this.belongsTo(models.Customer, { as: 'customer' });
+    //asociacion para la relacion muchos a muchos
+    //:TODO=ver cual es el error
+
+    this.belongsToMany(models.Product,{as:'items',through:models.OrderProduct,foreignKey:'orderId',otherKey:'productId'});
   }
   static config(sequelize) {
     return {
