@@ -11,7 +11,7 @@ function setupModels(sequelize) {
   Category.init(CategorySchema, Category.config(sequelize));
   Product.init(ProductSchema, Product.config(sequelize));
   Order.init(OrderSchema,Order.config(sequelize));
-  OrderProduct.init(OrderProductSchema,Order.config(sequelize));
+  OrderProduct.init(OrderProductSchema,OrderProduct.config(sequelize));//Se resolvio el problema de la asociacion
 
   User.associate(sequelize.models);
   Customer.associate(sequelize.models);

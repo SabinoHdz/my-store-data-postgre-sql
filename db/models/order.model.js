@@ -35,7 +35,7 @@ class Order extends Model {
     // en el servicio
     this.belongsTo(models.Customer, { as: 'customer' });
     //asociacion para la relacion muchos a muchos
-    //:TODO=ver cual es el error
+    //todo resuelto
 
     this.belongsToMany(models.Product,{as:'items',through:models.OrderProduct,foreignKey:'orderId',otherKey:'productId'});
   }
