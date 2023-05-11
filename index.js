@@ -14,6 +14,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+//implementar estrategia
+require('./utils/auth/index');
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');
 });
